@@ -1,0 +1,188 @@
+// ==========================================================================
+// אמונה — Landing page interactions
+// ==========================================================================
+
+document.addEventListener('DOMContentLoaded', () => {
+  const header = document.getElementById('siteHeader');
+  const navToggle = document.getElementById('navToggle');
+  const mainNav = document.getElementById('mainNav');
+  const navLinks = document.querySelectorAll('.nav-link');
+  const toTopBtn = document.getElementById('toTop');
+  const yearEl = document.getElementById('year');
+
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+  // ---- sticky header shadow ----
+  const onScroll = () => {
+    if (window.scrollY > 40) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+    toTopBtn.classList.toggle('visible', window.scrollY > 700);
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // ---- mobile nav toggle ----
+  navToggle.addEventListener('click', () => {
+    mainNav.classList.toggle('open');
+    navToggle.classList.toggle('active');
+    header.classList.toggle('nav-open', mainNav.classList.contains('open'));
+    document.body.style.overflow = mainNav.classList.contains('open') ? 'hidden' : '';
+  });
+
+  document.querySelectorAll('.main-nav a').forEach(link => {
+    link.addEventListener('click', () => {
+      mainNav.classList.remove('open');
+      navToggle.classList.remove('active');
+      header.classList.remove('nav-open');
+      document.body.style.overflow = '';
+    });
+  });
+
+  // ---- back to top ----
+  toTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // ---- scrollspy: highlight active nav link ----
+  const sections = Array.from(navLinks)
+    .map(link => document.querySelector(link.getAttribute('href')))
+    .filter(Boolean);
+
+  const spyObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const id = entry.target.getAttribute('id');
+      const link = document.querySelector(`.nav-link[href="#${id}"]`);
+      if (!link) return;
+      if (entry.isIntersecting) {
+        navLinks.forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+
+  sections.forEach(section => spyObserver.observe(section));
+
+  // ---- reveal on scroll ----
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+  // ---- contact form: sends to Efrat's WhatsApp ----
+  const form = document.getElementById('contactForm');
+  const formMsg = document.getElementById('formMsg');
+  const WHATSAPP_NUMBER = '972544996314';
+
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('cf-name').value.trim();
+      const interest = document.getElementById('cf-interest').value.trim();
+
+      if (!name || !interest) {
+        formMsg.textContent = 'אנא מלאו שם ופרטים על מה שאתן מחפשות.';
+        formMsg.className = 'form-msg error';
+        return;
+      }
+
+      const message = `היי אפרת, שמי ${name} 😊\nאני מתעניין/ת ב-${interest}.\nאשמח לקבל פרטים נוספים.`;
+      const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+      window.open(waUrl, '_blank');
+
+      formMsg.textContent = `תודה, ${name}! נפתח עבורכם וואטסאפ — פשוט לחצו שליחה שם.`;
+      formMsg.className = 'form-msg success';
+      form.reset();
+    });
+  }
+
+  // ---- image lightbox ----
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const lightboxClose = document.getElementById('lightboxClose');
+
+  if (lightbox && lightboxImg && lightboxClose) {
+    const zoomableSelector = '.about-photo img, .cat-hero-photo img, .pc-img img, .pc-img-full img, .pc-tallit-img img, .pc-tallit-swatch img, .material-strip img';
+
+    const openLightbox = (src, alt) => {
+      lightboxImg.src = src;
+      lightboxImg.alt = alt || '';
+      lightbox.classList.add('open');
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    };
+
+    const closeLightbox = () => {
+      lightbox.classList.remove('open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      lightboxImg.src = '';
+    };
+
+    document.querySelectorAll(zoomableSelector).forEach(img => {
+      img.addEventListener('click', () => openLightbox(img.currentSrc || img.src, img.alt));
+    });
+
+    lightboxClose.addEventListener('click', closeLightbox);
+
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox();
+    });
+  }
+
+  // ---- color swatches: swap main product image ----
+  const charmsMainImg = document.getElementById('charmsMainImg');
+  const charmsColorDots = document.getElementById('charmsColorDots');
+
+  if (charmsMainImg && charmsColorDots) {
+    charmsColorDots.addEventListener('click', (e) => {
+      const swatch = e.target.closest('.color-swatch');
+      if (!swatch) return;
+      const newSrc = swatch.getAttribute('data-img');
+      if (!newSrc) return;
+      charmsMainImg.src = newSrc;
+      charmsMainImg.alt = 'סידור סדרת צארמס - ' + (swatch.getAttribute('aria-label') || '');
+      charmsColorDots.querySelectorAll('.color-swatch').forEach(s => s.classList.remove('active'));
+      swatch.classList.add('active');
+    });
+  }
+
+  // ---- scroll text reveal (about section) ----
+  const revealTextTargets = document.querySelectorAll('.about-text h2, .about-text p:not(.eyebrow):not(.about-signature)');
+
+  if (revealTextTargets.length) {
+    revealTextTargets.forEach(el => {
+      const words = el.textContent.trim().split(/\s+/);
+      el.innerHTML = words.map(w => `<span class="reveal-word">${w}</span>`).join(' ');
+    });
+
+    const wordEls = document.querySelectorAll('.about-text .reveal-word');
+    let wordsTicking = false;
+    const updateWordReveal = () => {
+      const trigger = window.innerHeight * 0.75;
+      wordEls.forEach(w => {
+        w.classList.toggle('revealed', w.getBoundingClientRect().top < trigger);
+      });
+      wordsTicking = false;
+    };
+    window.addEventListener('scroll', () => {
+      if (!wordsTicking) {
+        requestAnimationFrame(updateWordReveal);
+        wordsTicking = true;
+      }
+    }, { passive: true });
+    updateWordReveal();
+  }
+});
