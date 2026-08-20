@@ -159,6 +159,27 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // ---- click-to-select product gallery (judaica) ----
+  const gallery = document.getElementById('judaicaGallery');
+  if (gallery) {
+    const thumbs = Array.from(gallery.querySelectorAll('.pcg-thumb'));
+    const detailTitle = document.getElementById('judaicaDetailTitle');
+    const detailMeta = document.getElementById('judaicaDetailMeta');
+    const detailDesc = document.getElementById('judaicaDetailDesc');
+    const detailPrice = document.getElementById('judaicaDetailPrice');
+
+    thumbs.forEach(thumb => {
+      thumb.addEventListener('click', () => {
+        thumbs.forEach(t => t.classList.remove('active'));
+        thumb.classList.add('active');
+        detailTitle.textContent = thumb.dataset.title || '';
+        detailMeta.textContent = thumb.dataset.meta || '';
+        detailDesc.textContent = thumb.dataset.desc || '';
+        detailPrice.textContent = thumb.dataset.price || '';
+      });
+    });
+  }
+
   // ---- scroll text reveal (about section) ----
   const revealTextTargets = document.querySelectorAll('.about-text h2, .about-text p:not(.eyebrow):not(.about-signature)');
 
