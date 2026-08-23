@@ -48,7 +48,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ---- scrollspy: highlight active nav link ----
   const sections = Array.from(navLinks)
-    .map(link => document.querySelector(link.getAttribute('href')))
+    .map(link => link.getAttribute('href'))
+    .filter(href => href && href.startsWith('#'))
+    .map(href => document.querySelector(href))
     .filter(Boolean);
 
   const spyObserver = new IntersectionObserver((entries) => {
@@ -66,16 +68,25 @@ document.addEventListener('DOMContentLoaded', () => {
   sections.forEach(section => spyObserver.observe(section));
 
   // ---- reveal on scroll ----
-  const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('in-view');
-        revealObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.12 });
+  const revealElements = document.querySelectorAll('.reveal');
 
-  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+  if ('IntersectionObserver' in window) {
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    revealElements.forEach(el => {
+      el.classList.add('reveal-ready');
+      revealObserver.observe(el);
+    });
+  } else {
+    revealElements.forEach(el => el.classList.add('in-view'));
+  }
 
   // ---- contact form: sends to Efrat's WhatsApp ----
   const form = document.getElementById('contactForm');

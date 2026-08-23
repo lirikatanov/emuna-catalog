@@ -112,10 +112,9 @@ h1, h2, h3, h4 {
 
 /* ---------- reveal-on-scroll ---------- */
 .reveal {
-  opacity: 0;
-  transform: translateY(28px);
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
+.reveal.reveal-ready { opacity: 0; transform: translateY(28px); }
 .reveal.in-view { opacity: 1; transform: translateY(0); }
 
 /* ==========================================================================
