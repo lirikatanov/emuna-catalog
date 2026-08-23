@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const lightboxClose = document.getElementById('lightboxClose');
 
   if (lightbox && lightboxImg && lightboxClose) {
-    const zoomableSelector = '.about-photo img, .cat-hero-photo img, .pc-img img, .pc-img-full img, .pc-tallit-img img, .pc-tallit-swatch img, .material-strip img';
+    const zoomableSelector = '.about-photo img, .cat-hero-photo img, .pc-img img, .pc-img-full img, .pc-tallit-img img, .pc-tallit-swatch img, .material-strip img, .rh-atmo-img img';
 
     const openLightbox = (src, alt) => {
       lightboxImg.src = src;
@@ -179,6 +179,26 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
+
+  // ---- swipeable product image galleries (2 photos per card) ----
+  document.querySelectorAll('.pc-img-swipe').forEach(wrap => {
+    const track = wrap.querySelector('.pc-img-track');
+    const dots = Array.from(wrap.querySelectorAll('.pc-img-dots .dot'));
+    const images = Array.from(track.querySelectorAll('img'));
+    if (!track || !dots.length) return;
+
+    const dotObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const index = images.indexOf(entry.target);
+          dots.forEach(d => d.classList.remove('active'));
+          if (dots[index]) dots[index].classList.add('active');
+        }
+      });
+    }, { root: track, threshold: 0.6 });
+
+    images.forEach(img => dotObserver.observe(img));
+  });
 
   // ---- scroll text reveal (about section) ----
   const revealTextTargets = document.querySelectorAll('.about-text h2, .about-text p:not(.eyebrow):not(.about-signature)');

@@ -251,6 +251,19 @@ h1, h2, h3, h4 {
   justify-content: center;
   flex-wrap: wrap;
 }
+.hero-actions-holiday {
+  display: flex;
+  justify-content: center;
+  margin-top: 18px;
+}
+.btn-holiday {
+  background: transparent;
+  color: var(--brown-1);
+  border-color: var(--brown-light);
+  font-size: 14px;
+  padding: 12px 30px;
+}
+.btn-holiday:hover { background: var(--brown-1); border-color: var(--brown-1); color: var(--cream); }
 .scroll-cue {
   position: absolute;
   bottom: 36px;
@@ -343,6 +356,46 @@ h1, h2, h3, h4 {
 .cat-card span.go { font-size: 13px; font-weight: 700; letter-spacing: 1px; }
 
 /* ==========================================================================
+   Standalone sub-pages (holidays.html, rosh-hashana.html)
+   ========================================================================== */
+.page-first-section { padding-top: 150px; }
+.breadcrumb {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 200;
+  color: var(--brown-light);
+  margin: 40px 0 20px 0;
+}
+.breadcrumb a { color: var(--brown-1); }
+.breadcrumb a:hover { text-decoration: underline; }
+
+/* ==========================================================================
+   Holiday collections index
+   ========================================================================== */
+.holidays-index {
+  padding: 80px 0 100px;
+  text-align: center;
+  background: var(--white);
+}
+.holidays-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+.holiday-card { position: relative; }
+.holiday-card.soon {
+  cursor: default;
+  opacity: 0.55;
+}
+.holiday-card.soon:hover { transform: none; box-shadow: 0 6px 24px rgba(64, 41, 30, 0.06); }
+.soon-badge {
+  color: var(--brown-light) !important;
+  letter-spacing: 1.5px;
+}
+
+/* ==========================================================================
    Product category sections
    ========================================================================== */
 .category-section {
@@ -425,6 +478,62 @@ html[dir="rtl"] .cat-watermark.left { left: -20px; }
 .product-card .pc-meta { font-size: 14px; font-weight: 700; color: var(--brown-1); }
 .product-card .pc-desc { font-size: 14px; color: var(--brown-light); flex-grow: 1; }
 .product-card .pc-price { margin-top: 6px; }
+
+/* swipeable product images (2 photos per card, e.g. color variants) */
+.pc-img-swipe { position: relative; }
+.pc-img-track {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.pc-img-track::-webkit-scrollbar { display: none; }
+.pc-img-track img {
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  scroll-snap-align: start;
+}
+.pc-img-dots {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  z-index: 2;
+}
+.pc-img-dots .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.55);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08);
+  transition: all 0.25s ease;
+}
+.pc-img-dots .dot.active { background: #fff; width: 16px; border-radius: 3px; }
+
+/* Rosh Hashana atmosphere gallery */
+.rh-atmo { margin-top: 70px; position: relative; z-index: 1; }
+.rh-atmo-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+.rh-atmo-img {
+  aspect-ratio: 3/4;
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  box-shadow: var(--shadow-product);
+  transition: transform 0.35s ease;
+}
+.rh-atmo-img:hover { transform: translateY(-6px); }
+.rh-atmo-img img { width: 100%; height: 100%; object-fit: cover; cursor: zoom-in; transition: transform 0.6s ease; }
+.rh-atmo-img:hover img { transform: scale(1.06); }
 
 .color-dots { display: flex; gap: 8px; justify-content: center; margin: 20px 0; flex-wrap: wrap; }
 .color-dots span {
@@ -817,6 +926,8 @@ html[dir="rtl"] .cat-watermark.left { left: -20px; }
    ========================================================================== */
 @media (max-width: 1024px) {
   .cat-grid { grid-template-columns: repeat(2, 1fr); }
+  .holidays-grid { grid-template-columns: repeat(2, 1fr); }
+  .rh-atmo-grid { grid-template-columns: repeat(3, 1fr); }
   .product-grid { grid-template-columns: repeat(3, 1fr); }
   .product-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
   .product-grid.full-bleed { grid-template-columns: repeat(3, 1fr); }
@@ -855,6 +966,12 @@ html[dir="rtl"] .cat-watermark.left { left: -20px; }
   .cat-index { padding: 70px 0; }
   .cat-grid { grid-template-columns: 1fr; gap: 14px; }
   .cat-card { padding: 20px 20px; gap: 8px; }
+
+  .page-first-section { padding-top: 110px; }
+  .holidays-index { padding: 50px 0 70px; }
+  .holidays-grid { grid-template-columns: 1fr; gap: 14px; }
+  .rh-atmo-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .rh-atmo { margin-top: 50px; }
 
   .category-section { padding: 70px 0; }
   .cat-watermark { font-size: 160px; opacity: 0.12; }
