@@ -6,7 +6,9 @@
 <title>אמונה | אָמָנוּת יוּדָאִיקָה</title>
 <meta name="description" content="אמונה — חנות דיגיטלית המתמחה במוצרי יודאיקה ותשמישי קדושה. מזוזות, סידורים, כיפות, מוצרים לשבת קודש, טלית ותפילין ועוד.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="assets/css/style.css?v=36">
+<link rel="preload" href="assets/fonts/HadasimCLM-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="assets/fonts/FtPilKahol.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="stylesheet" href="assets/css/style.css?v=51">
 </head>
 <body>
 
@@ -32,6 +34,7 @@
         <li><a href="#kippot" class="nav-link">כיפות</a></li>
         <li><a href="#kids" class="nav-link">ילדים</a></li>
         <li><a href="#judaica" class="nav-link">יודאיקה</a></li>
+        <li><a href="holidays.html" class="nav-link">קולקציות חגים</a></li>
       </ul>
     </nav>
 
@@ -151,6 +154,15 @@
     </div>
 
     <div class="product-grid reveal">
+      <article class="product-card" style="grid-column: 1 / -1;">
+        <div class="pc-img"><img src="assets/img/mezuzah_collection_1.jpg" alt="מזוזות בטון עם חריטות שונות"></div>
+        <div class="pc-body">
+          <h3>מזוזות בטון עם חריטות שונות</h3>
+          <p class="pc-meta">דגמים: חמסה · מגן דוד · שמע ישראל · שפע ברכות<br>מידה: 15 ס״מ</p>
+          <p class="pc-desc">קולקציית מזוזות בטון בגוונים טבעיים, כל דגם עם חריטה ייחודית משלו.</p>
+          <p class="price pc-price">120 ש״ח</p>
+        </div>
+      </article>
       <article class="product-card">
         <div class="pc-img"><img src="assets/img/mezuzah_1.jpg" alt="מזוזת שין לבן / אפור"></div>
         <div class="pc-body">
@@ -158,42 +170,6 @@
           <p class="pc-meta">מידה: 12 / 15 ס״מ<br>צבע: לבן / אפור</p>
           <p class="pc-desc">מזוזת בטון קלאסית, עם חריטה פנימית עדינה של האות ש׳.</p>
           <p class="price pc-price">120/140 ש״ח</p>
-        </div>
-      </article>
-      <article class="product-card">
-        <div class="pc-img"><img src="assets/img/mezuzah_2.jpg" alt="מזוזת מגן דוד"></div>
-        <div class="pc-body">
-          <h3>מגן דוד</h3>
-          <p class="pc-meta">מידה: 15 ס״מ</p>
-          <p class="pc-desc">מזוזת בטון בגוון שיש לבן, עם מגן דוד.</p>
-          <p class="price pc-price">120 ש״ח</p>
-        </div>
-      </article>
-      <article class="product-card">
-        <div class="pc-img"><img src="assets/img/mezuzah_3.jpg" alt="מזוזת חמסה"></div>
-        <div class="pc-body">
-          <h3>חמסה</h3>
-          <p class="pc-meta">מידה: 15 ס״מ<br>צבע: חום / אבן בהיר</p>
-          <p class="pc-desc">מזוזת בטון בגוון חום בהיר, עם חמסה חרוטה.</p>
-          <p class="price pc-price">120 ש״ח</p>
-        </div>
-      </article>
-      <article class="product-card">
-        <div class="pc-img"><img src="assets/img/mezuzah_4.jpg" alt="מזוזת שפע ברכות"></div>
-        <div class="pc-body">
-          <h3>שפע ברכות</h3>
-          <p class="pc-meta">מידה: 15 ס״מ</p>
-          <p class="pc-desc">מזוזת בטון בגוון חום בהיר, עם ברכות.</p>
-          <p class="price pc-price">120 ש״ח</p>
-        </div>
-      </article>
-      <article class="product-card">
-        <div class="pc-img"><img src="assets/img/mezuzah_5.jpg" alt="מזוזת שמע ישראל"></div>
-        <div class="pc-body">
-          <h3>שמע ישראל</h3>
-          <p class="pc-meta">מידה: 15 ס״מ</p>
-          <p class="pc-desc">מזוזת פולימר בגוון אבן טבעי, עם חריטה עדינה של "שמע ישראל" ו־ש׳ שקועה, בקו נקי ומדויק.</p>
-          <p class="price pc-price">120 ש״ח</p>
         </div>
       </article>
       <article class="product-card">
@@ -205,8 +181,14 @@
           <p class="price pc-price">120 ש״ח</p>
         </div>
       </article>
-      <article class="product-card">
-        <div class="pc-img"><img src="assets/img/mezuzah_7.jpg" alt="מזוזת וכתבתם על"></div>
+      <article class="product-card pc-wide">
+        <div class="pc-img pc-img-swipe" style="aspect-ratio: 6 / 4;">
+          <div class="pc-img-track">
+            <img src="assets/img/mezuzah_7.jpg" alt="מזוזת וכתבתם על">
+            <img src="assets/img/mezuzah_7_focus.jpg" alt="מזוזת וכתבתם על תקריב">
+          </div>
+          <span class="pc-img-dots"><span class="dot active"></span><span class="dot"></span></span>
+        </div>
         <div class="pc-body">
           <h3>וכתבתם על</h3>
           <p class="pc-meta">מידה: 20 / 15 ס״מ</p>
@@ -238,7 +220,15 @@
 
     <div class="product-grid full-bleed reveal">
       <article class="pc-full">
-        <div class="pc-img-full"><img src="assets/img/siddur_1.jpg" alt="סידור סדרת קרטייה"></div>
+        <div class="pc-img-full pc-img-swipe">
+          <div class="pc-img-track">
+            <img src="assets/img/siddur_1.jpg" alt="סידור סדרת קרטייה">
+            <img src="assets/img/siddur_1_2.jpg" alt="סידור סדרת קרטייה בשלל צבעים">
+            <img src="assets/img/siddur_1_3.jpg" alt="סידור סדרת קרטייה תקריב">
+            <img src="assets/img/siddur_1_4.jpg" alt="סידור סדרת קרטייה עומד">
+          </div>
+          <span class="pc-img-dots"><span class="dot active"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span>
+        </div>
         <div class="pc-body">
           <h3>סדרת קרטייה</h3>
           <p class="pc-desc">סידור דמוי עור מהודר, כריכה קשה בעיצוב קלאסי יוקרתי ואלגנט. מודפס על גבי דפים איכותיים ובאותיות גדולות וברורות לקריאה.</p>
@@ -464,6 +454,123 @@
           <p class="price pc-price">350 ש״ח</p>
         </div>
       </article>
+      <article class="product-card">
+        <div class="pc-img"><img src="assets/img/shabbat_16.jpg" alt="סדר הבדלה רוז גולד מגש שחור"></div>
+        <div class="pc-body">
+          <h3>סדר הבדלה</h3>
+          <p class="pc-meta">דגם: רוז גולד · מגש שחור</p>
+          <p class="pc-desc">סט הבדלה מקריסטל בגוון ורוד-זהב, עם מגש עגול שחור וכלים מוזהבים לבשמים, ליין ולנר. עיצוב מודרני ומהודר לצאת השבת.</p>
+          <p class="price pc-price">350 ש״ח</p>
+        </div>
+      </article>
+      <article class="product-card">
+        <div class="pc-img pc-img-swipe">
+          <div class="pc-img-track">
+            <img src="assets/img/shabbat_17.jpg" alt="מעמד פרספקט ברכת המזון">
+            <img src="assets/img/shabbat_28.jpg" alt="מעמד פרספקט ברכת המזון בעיצוב יהלום">
+          </div>
+          <span class="pc-img-dots"><span class="dot active"></span><span class="dot"></span></span>
+        </div>
+        <div class="pc-body">
+          <h3>מעמד פרספקט ברכת המזון</h3>
+          <p class="pc-meta">גודל: 22×17 ס״מ · 6 יח׳</p>
+          <p class="pc-desc">מעמד פרספקט שקוף לברכת המזון, בעיצוב ריבוע מוטה ואותיות מוגבהות. מארז 6 יחידות, מתאים לכל מקום בשולחן השבת.</p>
+          <p class="price pc-price">199 ש״ח</p>
+        </div>
+      </article>
+      <article class="product-card">
+        <div class="pc-img"><img src="assets/img/shabbat_18.jpg" alt="מעמד פרספקט ברכת המקום"></div>
+        <div class="pc-body">
+          <h3>מעמד פרספקט ברכת המקום</h3>
+          <p class="pc-meta">גודל: 22×25 ס״מ · 7 יח׳</p>
+          <p class="pc-desc">מעמד פרספקט עומד לברכת המזון, בגימור שקוף ואותיות תלת-ממדיות. מארז 7 יחידות, מתאים לכל אורחי השולחן.</p>
+          <p class="price pc-price">199 ש״ח</p>
+        </div>
+      </article>
+      <article class="product-card">
+        <div class="pc-img pc-img-swipe">
+          <div class="pc-img-track">
+            <img src="assets/img/shabbat_19.jpg" alt="גביע קריסטל חלבי יום השישי">
+            <img src="assets/img/shabbat_27.jpg" alt="גביע קריסטל חלבי לצד גביע זהב">
+          </div>
+          <span class="pc-img-dots"><span class="dot active"></span><span class="dot"></span></span>
+        </div>
+        <div class="pc-body">
+          <h3>גביע קריסטל חלבי</h3>
+          <p class="pc-meta">דגם: יום השישי</p>
+          <p class="pc-desc">גביע קידוש מקריסטל בגוון חלבי מט, עם צלחת תואמת וברכת ליל שישי חרוטה לאורך ההיקף.</p>
+          <p class="price pc-price">150 ש״ח</p>
+        </div>
+      </article>
+      <article class="product-card">
+        <div class="pc-img pc-img-swipe">
+          <div class="pc-img-track">
+            <img src="assets/img/shabbat_20.jpg" alt="גביע קריסטל זהב מהודר יום השישי">
+            <img src="assets/img/shabbat_25.jpg" alt="גביע קריסטל זהב לצד פמוטי קריסטל">
+          </div>
+          <span class="pc-img-dots"><span class="dot active"></span><span class="dot"></span></span>
+        </div>
+        <div class="pc-body">
+          <h3>גביע קריסטל זהב</h3>
+          <p class="pc-meta">דגם: זהב מהודר · יום השישי</p>
+          <p class="pc-desc">גביע קידוש מקריסטל בגימור זהב מבריק, עם צלחת תואמת וברכת ליל שישי חרוטה בזהב.</p>
+          <p class="price pc-price">150 ש״ח</p>
+        </div>
+      </article>
+      <article class="product-card">
+        <div class="pc-img pc-img-swipe">
+          <div class="pc-img-track">
+            <img src="assets/img/shabbat_21.jpg" alt="זוג פמוטי קריסטל זהב">
+            <img src="assets/img/shabbat_30.jpg" alt="זוג פמוטי קריסטל זהב עם קרני אור">
+          </div>
+          <span class="pc-img-dots"><span class="dot active"></span><span class="dot"></span></span>
+        </div>
+        <div class="pc-body">
+          <h3>זוג פמוטי קריסטל</h3>
+          <p class="pc-meta">צבע: זהב · גובה 10 ס״מ</p>
+          <p class="pc-desc">זוג פמוטים נמוכים מקריסטל משושה בגוון זהב-ענבר, יוצרים נצנוץ ואור מיוחד בהדלקת הנרות.</p>
+          <p class="price pc-price">180 ש״ח</p>
+        </div>
+      </article>
+      <article class="product-card">
+        <div class="pc-img pc-img-swipe">
+          <div class="pc-img-track">
+            <img src="assets/img/shabbat_22.jpg" alt="זוג פמוטי קריסטל עם עיטור שבת קודש">
+            <img src="assets/img/shabbat_26.jpg" alt="זוג פמוטי קריסטל עיטור שבת קודש לצד ברכת המזון וגביע קידוש">
+          </div>
+          <span class="pc-img-dots"><span class="dot active"></span><span class="dot"></span></span>
+        </div>
+        <div class="pc-body">
+          <h3>זוג פמוטי קריסטל</h3>
+          <p class="pc-meta">דגם: עיטור שבת קודש · גובה 8 ס״מ</p>
+          <p class="pc-desc">זוג פמוטי קריסטל מרובעים עם מדליון ״שבת קודש״ מוזהב ומסגרת כסופה מנוקדת.</p>
+          <p class="price pc-price">160 ש״ח</p>
+        </div>
+      </article>
+      <article class="product-card">
+        <div class="pc-img pc-img-swipe">
+          <div class="pc-img-track">
+            <img src="assets/img/shabbat_23.jpg" alt="מגש חלה מעץ">
+            <img src="assets/img/shabbat_29.jpg" alt="מגש חלה מעץ עם ברכת המזון וגביע קידוש">
+          </div>
+          <span class="pc-img-dots"><span class="dot active"></span><span class="dot"></span></span>
+        </div>
+        <div class="pc-body">
+          <h3>מגש חלה מעץ</h3>
+          <p class="pc-meta">כולל סכין חלה תואמת</p>
+          <p class="pc-desc">מגש חלה מעץ בשילוב פס רזין לבן, עם הכיתוב ״שבת ויום טוב״ חרוט וסכין חלה תואמת בידית כסופה.</p>
+          <p class="price pc-price">220 ש״ח</p>
+        </div>
+      </article>
+      <article class="product-card">
+        <div class="pc-img"><img src="assets/img/shabbat_24.jpg" alt="זוג כוסיות קריסטל לשמן"></div>
+        <div class="pc-body">
+          <h3>זוג כוסיות קריסטל</h3>
+          <p class="pc-meta">לשמן</p>
+          <p class="pc-desc">זוג כוסיות קריסטל שקופות וקטנות, מתאימות לכוסיות שמן לצד פמוטי השבת.</p>
+          <p class="price pc-price">70 ש״ח</p>
+        </div>
+      </article>
     </div>
   </div>
 </section>
@@ -660,6 +767,17 @@
     </div>
 
     <div class="product-grid kids reveal">
+      <article class="pc-kid pc-kid-featured" style="grid-column: 1 / -1;">
+        <h3>סט חלאקה פרימיום</h3>
+        <div class="pc-kid-gallery">
+          <div class="pc-kid-gallery-img"><img src="assets/img/kids_premium_1.jpg" alt="סט חלאקה פרימיום - טלית, כיפה, תיק טלית ותיק תלתל"></div>
+          <div class="pc-kid-gallery-img"><img src="assets/img/kids_premium_2.jpg" alt="סט חלאקה פרימיום - רקמת שם על הטלית"></div>
+          <div class="pc-kid-gallery-img"><img src="assets/img/kids_premium_3.jpg" alt="סט חלאקה פרימיום - ספר תורה לבן"></div>
+          <div class="pc-kid-gallery-img"><img src="assets/img/kids_premium_4.jpg" alt="סט חלאקה פרימיום - מבט כללי על הסט"></div>
+        </div>
+        <p style="font-weight:700;">סט כולל: כיפה · טלית · תיק טלית · תיק תלתל · מספריים · ספר תורה</p>
+        <p class="price">[מחיר] ש״ח</p>
+      </article>
       <article class="pc-kid">
         <div class="blob b1"></div>
         <div class="pc-kid-img"><img src="assets/img/kids_puzzle_holidays.jpg" alt="פאזל חגי ישראל"></div>
@@ -699,10 +817,31 @@
         <p class="price">150 ש״ח</p>
       </article>
       <article class="pc-kid">
-        <div class="blob b3"></div>
-        <h3>סט חלאקה פרימיום</h3>
-        <p>[לפרט: מה כלול בסט הפרימיום?]</p>
-        <p class="price">[מחיר] ש״ח</p>
+        <div class="blob b1"></div>
+        <div class="pc-kid-img">
+          <div class="pc-img-swipe" style="height:100%;">
+            <div class="pc-img-track">
+              <img src="assets/img/kids_torah_1.jpg" alt="ספר תורה לבן פתוח">
+              <img src="assets/img/kids_torah_2.jpg" alt="ספר תורה לבן סגור">
+            </div>
+            <div class="pc-img-dots">
+              <span class="dot active"></span>
+              <span class="dot"></span>
+            </div>
+          </div>
+        </div>
+        <h3>ספר תורה לבן</h3>
+        <p style="font-weight:700;">גודל: 28 ס״מ · כולל חריטה לבחירה</p>
+        <p>ספר תורה דקורטיבי בגוון לבן עם עיטורי ירושלים חרוטים, נפתח לגליל פנימי. ניתן להוסיף חריטת שם אישית.</p>
+        <p class="price">170 ש״ח</p>
+      </article>
+      <article class="pc-kid">
+        <div class="blob b2"></div>
+        <div class="pc-kid-img"><img src="assets/img/kids_tof_miriam.jpg" alt="תוף מרים מזמור לתודה"></div>
+        <h3>תוף מרים ״מזמור לתודה״</h3>
+        <p style="font-weight:700;">גודל: 25 ס״מ</p>
+        <p>תוף מרים בגוון לבן־זהב עם מזמור לתודה מודפס ועיטור פרחוני עדין, מלווה בשירה וריקוד.</p>
+        <p class="price">65 ש״ח</p>
       </article>
       <article class="pc-kid" style="display:flex; align-items:center; justify-content:center;">
         <div>
@@ -724,52 +863,105 @@
       <p>מוצרי יודאיקה הם חיבור למסורת, לאמונה ולשורשים. כל פריט הוא אור קטן שמאיר את הבית והרגעים הקטנים בחיי היום יום בדרך של משמעות, קדושה וברכה.</p>
     </div>
 
-    <div class="pc-gallery reveal" id="judaicaGallery">
-      <div class="pcg-grid">
-        <button type="button" class="pcg-thumb active" data-title="הפרשת חלה" data-meta="[לפרט: דגם / מידות]" data-desc="[לפרט: תיאור המוצר]" data-price="[מחיר] ש״ח">
-          <img src="assets/img/jd_challah.jpg" alt="הפרשת חלה">
-        </button>
-        <button type="button" class="pcg-thumb" data-title="נטלה מהודרת" data-meta="צבע: חול / אפור" data-desc="נטלת נטילת ידיים בגימור מט מהודר, מוסיפה מראה נקי ומעודכן לצד הכיור." data-price="145 ש״ח">
-          <img src="assets/img/jd_natla1.jpg" alt="נטלה מהודרת">
-        </button>
-        <button type="button" class="pcg-thumb" data-title="נטלה מהודרת" data-meta="צבע: חול / אפור" data-desc="נטלת נטילת ידיים בגימור מט מהודר, מוסיפה מראה נקי ומעודכן לצד הכיור." data-price="145 ש״ח">
-          <img src="assets/img/jd_natla2.jpg" alt="נטלה מהודרת">
-        </button>
-        <button type="button" class="pcg-thumb" data-title="נטלה מהודרת - שחור" data-meta="צבע: שחור מט" data-desc="נטלת נטילת ידיים בגימור מט שחור, עיצוב עגלגל וחרוט לאורך כל ההיקף." data-price="145 ש״ח">
-          <img src="assets/img/jd_natla_black.jpg" alt="נטלה מהודרת שחור">
-        </button>
-        <button type="button" class="pcg-thumb" data-title="סט נטלה אפור" data-meta="צבע: אפור / ניוד / לבן" data-desc="סט שלם הכולל נטלה, סבונייה ומגש תואם, בעיצוב אחיד ואלגנטי לחדר הרחצה או המטבח." data-price="220 ש״ח">
-          <img src="assets/img/jd_natla_set.jpg" alt="סט נטלה אפור">
-        </button>
-        <button type="button" class="pcg-thumb" data-title="שטנדר ״והגית בו״" data-meta="צבע: עץ במבוק · 34×38 ס״מ" data-desc="שטנדר עץ יציב ואלגנטי ללימוד, מתקפל בקלות ומתאים לכל שולחן." data-price="200 ש״ח">
-          <img src="assets/img/jd_standing.jpg" alt="שטנדר והגית בו">
-        </button>
-        <button type="button" class="pcg-thumb" data-title="מעמד בטון" data-meta="דגם: מזמור לתודה / ברכת הבית · 22×16 ס״מ" data-desc="בלוק קיר בעיצוב מודרני עם חריטת טקסט, לתלייה בכניסה לבית או במטבח." data-price="170 ש״ח">
-          <img src="assets/img/jd_concrete.jpg" alt="מעמד בטון">
-        </button>
-        <button type="button" class="pcg-thumb" data-title="קופת צדקה - האש שלי" data-meta="דגם: ״האש שלי״" data-desc="קופת צדקה בעיצוב מודרני לבית, מזכירה יומיומית למצוות הצדקה." data-price="145 ש״ח">
-          <img src="assets/img/jd_tzedaka_esh.jpg" alt="קופת צדקה האש שלי">
-        </button>
-        <button type="button" class="pcg-thumb" data-title="סט קודש-שבת-צדקה - כותל" data-meta="דגם: ״כותל״ · אבן ירושלים" data-desc="סט הכולל קופת צדקה וזוג מעמדי נר בעיצוב אבן ירושלים, לשולחן השבת או לכניסה לבית." data-price="145 ש״ח">
-          <img src="assets/img/jd_tzedaka_kotel.jpg" alt="סט קודש שבת צדקה כותל">
-        </button>
-        <button type="button" class="pcg-thumb" data-title="מראה וסדר הנחת תפילין" data-meta="[לפרט: דגם / מידות]" data-desc="[לפרט: תיאור המוצר]" data-price="[מחיר] ש״ח">
-          <img src="assets/img/jd_mirror.jpg" alt="מראה וסדר הנחת תפילין">
-        </button>
-        <button type="button" class="pcg-thumb" data-title="מחזיק מפתחות - האש שלי" data-meta="דגם: האש שלי – חום / האש שלי – לבן" data-desc="מחזיק מפתחות עץ במבוק בעיצוב אישי, מתנה קטנה ומשמעותית." data-price="25 ש״ח">
-          <img src="assets/img/jd_keychain.jpg" alt="מחזיק מפתחות האש שלי">
-        </button>
-        <button type="button" class="pcg-thumb" data-title="מגנט תפילה" data-meta="[לפרט: דגם / מידות]" data-desc="[לפרט: תיאור המוצר]" data-price="[מחיר] ש״ח">
-          <img src="assets/img/jd_magnet.jpg" alt="מגנט תפילה">
-        </button>
-      </div>
+    <div class="product-grid judaica-grid reveal">
+      <article class="product-card judaica-product">
+        <div class="pc-img pc-img-swipe" aria-label="גלריית תמונות הפרשת חלה">
+          <div class="pc-img-track">
+            <img src="assets/img/judaica/challah-1.jpg" alt="סט הפרשת חלה" loading="lazy" decoding="async">
+            <img src="assets/img/judaica/challah-3.jpg" alt="מגש וכיסוי להפרשת חלה" loading="lazy" decoding="async">
+          </div>
+          <button class="pc-img-nav prev" type="button" aria-label="לתמונה הקודמת">‹</button>
+          <button class="pc-img-nav next" type="button" aria-label="לתמונה הבאה">›</button>
+          <span class="pc-img-dots" aria-hidden="true"><span class="dot active"></span><span class="dot"></span></span>
+        </div>
+        <div class="pc-body"><h3>הפרשת חלה</h3><p class="pc-desc">מגש עגול וכיסוי חלה תואם בגימור מרופד לבן, עם ברכת הפרשת חלה חרוטה בכסף.</p><p class="price pc-price">140 ש״ח</p></div>
+      </article>
 
-      <div class="pcg-detail" id="judaicaDetail">
-        <h3 id="judaicaDetailTitle">הפרשת חלה</h3>
-        <p class="pc-meta" id="judaicaDetailMeta">[לפרט: דגם / מידות]</p>
-        <p class="pc-desc" id="judaicaDetailDesc">[לפרט: תיאור המוצר]</p>
-        <p class="price pc-price" id="judaicaDetailPrice">[מחיר] ש״ח</p>
-      </div>
+      <article class="product-card judaica-product">
+        <div class="pc-img pc-img-swipe" aria-label="גלריית תמונות נטלה מהודרת">
+          <div class="pc-img-track">
+            <img src="assets/img/judaica/natla-light-1.jpg" alt="נטלה מהודרת בגוון בהיר" loading="lazy" decoding="async">
+            <img src="assets/img/judaica/natla-light-2.jpg" alt="נטלה מהודרת לבנה" loading="lazy" decoding="async">
+            <img src="assets/img/judaica/natla-light-4.jpg" alt="נטלה מהודרת בגוון חול" loading="lazy" decoding="async">
+            <img src="assets/img/judaica/natla-light-5.jpg" alt="נטלה מהודרת בגימור מפוספס" loading="lazy" decoding="async">
+            <img src="assets/img/judaica/natla-light-6.jpg" alt="נטלה מהודרת אפורה" loading="lazy" decoding="async">
+            <img src="assets/img/judaica/natla-light-7.jpg" alt="מבחר נטלות מהודרות" loading="lazy" decoding="async">
+            <img src="assets/img/judaica/natla-black-1.jpg" alt="נטלה מהודרת שחורה" loading="lazy" decoding="async">
+            <img src="assets/img/judaica/natla-black-2.jpg" alt="תקריב נטלה מהודרת שחורה" loading="lazy" decoding="async">
+          </div>
+          <button class="pc-img-nav prev" type="button" aria-label="לתמונה הקודמת">‹</button><button class="pc-img-nav next" type="button" aria-label="לתמונה הבאה">›</button>
+          <span class="pc-img-dots" aria-hidden="true"><span class="dot active"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span>
+        </div>
+        <div class="pc-body"><h3>נטלה מהודרת</h3><p class="pc-meta">צבעים: לבן / אפור / חול / שחור</p><p class="pc-desc">נטלה בגימור מט מהודר, בעיצוב נקי ועדכני המוסיף מראה אלגנטי לצד הכיור.</p><p class="price pc-price">135 ש״ח</p></div>
+      </article>
+
+      <article class="product-card judaica-product">
+        <div class="pc-img pc-img-swipe" aria-label="גלריית תמונות סט נטלה">
+          <div class="pc-img-track"><img src="assets/img/judaica/natla-set-1.jpg" alt="סט נטלה אפור" loading="lazy" decoding="async"><img src="assets/img/judaica/natla-set-2.jpg" alt="נטלה מתוך הסט" loading="lazy" decoding="async"></div>
+          <button class="pc-img-nav prev" type="button" aria-label="לתמונה הקודמת">‹</button><button class="pc-img-nav next" type="button" aria-label="לתמונה הבאה">›</button>
+          <span class="pc-img-dots" aria-hidden="true"><span class="dot active"></span><span class="dot"></span></span>
+        </div>
+        <div class="pc-body"><h3>סט נטלה</h3><p class="pc-meta">צבעים: אפור / ניוד / לבן</p><p class="pc-desc">סט שלם הכולל נטלה, סבונייה ומגש תואם, בעיצוב אחיד ואלגנטי לחדר הרחצה או למטבח.</p><p class="price pc-price">220 ש״ח</p></div>
+      </article>
+
+      <article class="product-card judaica-product">
+        <div class="pc-img pc-img-swipe" aria-label="גלריית תמונות שטנדר">
+          <div class="pc-img-track"><img src="assets/img/judaica/shtender-1.jpg" alt="שטנדר עץ במבוק" loading="lazy" decoding="async"><img src="assets/img/judaica/shtender-2.jpg" alt="שטנדר והגית בו" loading="lazy" decoding="async"></div>
+          <button class="pc-img-nav prev" type="button" aria-label="לתמונה הקודמת">‹</button><button class="pc-img-nav next" type="button" aria-label="לתמונה הבאה">›</button>
+          <span class="pc-img-dots" aria-hidden="true"><span class="dot active"></span><span class="dot"></span></span>
+        </div>
+        <div class="pc-body"><h3>שטנדר ״והגית בו״</h3><p class="pc-desc">שטנדר עץ במבוק יציב ואלגנטי ללימוד, מתקפל בקלות ומתאים לכל שולחן.</p><p class="price pc-price">200 ש״ח</p></div>
+      </article>
+
+      <article class="product-card judaica-product">
+        <div class="pc-img pc-img-swipe" aria-label="גלריית תמונות מעמדי בטון">
+          <div class="pc-img-track"><img src="assets/img/judaica/concrete-stand-1.jpg" alt="מבחר מעמדי בטון" loading="lazy" decoding="async"><img src="assets/img/judaica/concrete-stand-2.jpg" alt="מעמד בטון בגימור אפור" loading="lazy" decoding="async"><img src="assets/img/judaica/concrete-stand-3.jpg" alt="מעמד בטון מזמור לתודה" loading="lazy" decoding="async"><img src="assets/img/judaica/concrete-stand-4.jpg" alt="מעמד בטון ברכת הבית" loading="lazy" decoding="async"></div>
+          <button class="pc-img-nav prev" type="button" aria-label="לתמונה הקודמת">‹</button><button class="pc-img-nav next" type="button" aria-label="לתמונה הבאה">›</button>
+          <span class="pc-img-dots" aria-hidden="true"><span class="dot active"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span>
+        </div>
+        <div class="pc-body"><h3>מעמדי בטון</h3><p class="pc-meta">דגם: מזמור לתודה / ברכת הבית</p><p class="pc-desc">מעמדים בעיצוב מודרני עם טקסט חרוט, לתוספת של משמעות ועיצוב בבית.</p><p class="price pc-price">170 ש״ח</p></div>
+      </article>
+
+      <article class="product-card judaica-product">
+        <div class="pc-img pc-img-swipe" aria-label="גלריית תמונות קופות צדקה">
+          <div class="pc-img-track"><img src="assets/img/judaica/tzedaka-fire-1.jpg" alt="קופת צדקה האש שלי" loading="lazy" decoding="async"><img src="assets/img/judaica/tzedaka-fire-3.jpg" alt="קופת צדקה האש שלי בגוון בהיר" loading="lazy" decoding="async"><img src="assets/img/judaica/tzedaka-kotel-1.jpg" alt="קופות צדקה בדגם כותל" loading="lazy" decoding="async"></div>
+          <button class="pc-img-nav prev" type="button" aria-label="לתמונה הקודמת">‹</button><button class="pc-img-nav next" type="button" aria-label="לתמונה הבאה">›</button>
+          <span class="pc-img-dots" aria-hidden="true"><span class="dot active"></span><span class="dot"></span><span class="dot"></span></span>
+        </div>
+        <div class="pc-body"><h3>קופות צדקה</h3><p class="pc-meta">דגם: האש שלי / כותל</p><p class="pc-desc">קופות צדקה בעיצוב מודרני לבית, תזכורת יומיומית יפה למצוות הצדקה.</p><p class="price pc-price">135 ש״ח</p></div>
+      </article>
+
+      <article class="product-card judaica-product">
+        <div class="pc-img pc-img-swipe" aria-label="גלריית תמונות מראה לסדר הנחת תפילין">
+          <div class="pc-img-track"><img src="assets/img/judaica/tefillin-mirror-1.jpg" alt="מראה וסדר הנחת תפילין" loading="lazy" decoding="async"><img src="assets/img/judaica/tefillin-mirror-2.jpg" alt="מראות מתקפלות לסדר הנחת תפילין" loading="lazy" decoding="async"><img src="assets/img/judaica/tefillin-mirror-3.jpg" alt="מראה מתקפלת פתוחה" loading="lazy" decoding="async"></div>
+          <button class="pc-img-nav prev" type="button" aria-label="לתמונה הקודמת">‹</button><button class="pc-img-nav next" type="button" aria-label="לתמונה הבאה">›</button>
+          <span class="pc-img-dots" aria-hidden="true"><span class="dot active"></span><span class="dot"></span><span class="dot"></span></span>
+        </div>
+        <div class="pc-body"><h3>מראה וסדר הנחת תפילין</h3><p class="pc-desc">מראה מתקפלת בעיצוב ספר תפילין מהודר, ובתוכה נוסח סדר הנחת תפילין.</p><p class="price pc-price">30 ש״ח</p></div>
+      </article>
+
+      <article class="product-card judaica-product">
+        <div class="pc-img pc-img-swipe" aria-label="גלריית תמונות מחזיק מפתחות">
+          <div class="pc-img-track"><img src="assets/img/judaica/keychain-1.jpg" alt="מחזיקי מפתחות האש שלי ותפילת הדרך" loading="lazy" decoding="async"><img src="assets/img/judaica/keychain-2.jpg" alt="מחזיקי מפתחות בגווני חום ולבן" loading="lazy" decoding="async"></div>
+          <button class="pc-img-nav prev" type="button" aria-label="לתמונה הקודמת">‹</button><button class="pc-img-nav next" type="button" aria-label="לתמונה הבאה">›</button>
+          <span class="pc-img-dots" aria-hidden="true"><span class="dot active"></span><span class="dot"></span></span>
+        </div>
+        <div class="pc-body"><h3>מחזיק מפתחות</h3><p class="pc-meta">דגמים: האש שלי / תפילת הדרך<br>צבעים: חום / לבן</p><p class="pc-desc">מחזיק מפתחות בעיצוב אישי ובמבחר גוונים, מתנה קטנה ומשמעותית.</p><p class="price pc-price">25 ש״ח</p></div>
+      </article>
+
+      <article class="product-card judaica-product">
+        <div class="pc-img pc-img-swipe" aria-label="גלריית תמונות מגנט תפילה">
+          <div class="pc-img-track"><img src="assets/img/judaica/prayer-magnet-1.jpg" alt="מגנט תפילת אנא בכח" loading="lazy" decoding="async"><img src="assets/img/judaica/prayer-magnet-5.jpg" alt="מגנט תפילה במבט נוסף" loading="lazy" decoding="async"></div>
+          <button class="pc-img-nav prev" type="button" aria-label="לתמונה הקודמת">‹</button><button class="pc-img-nav next" type="button" aria-label="לתמונה הבאה">›</button>
+          <span class="pc-img-dots" aria-hidden="true"><span class="dot active"></span><span class="dot"></span></span>
+        </div>
+        <div class="pc-body"><h3>מגנט תפילה</h3><p class="pc-desc">מגנט עם תפילת ״אנא בכח״ חרוטה ועיטור ירושלים, לתלייה על כל משטח מגנטי.</p><p class="price pc-price">25 ש״ח</p></div>
+      </article>
+
+      <article class="product-card judaica-product">
+        <div class="pc-img"><img src="assets/img/judaica/concrete-block-1.jpg" alt="בלוק בטון מזמור לתודה" loading="lazy" decoding="async"></div>
+        <div class="pc-body"><h3>בלוק בטון ״מזמור לתודה״</h3><p class="pc-desc">בלוק בטון בגימור לבן עם קצה סדוק מעוצב ומזמור לתודה חרוט.</p><p class="price pc-price">200 ש״ח</p></div>
+      </article>
     </div>
   </div>
 </section>
@@ -811,20 +1003,28 @@
       <div class="footer-col">
         <h4>קטלוג</h4>
         <ul>
-          <li><a href="holidays.html">קולקציות חגים</a></li>
+          <li><a href="#about">אודות</a></li>
           <li><a href="#mezuzot">מזוזות</a></li>
-          <li><a href="#siddurim">סידורים ותפילות</a></li>
-          <li><a href="#shabbat">לכבוד שבת קודש</a></li>
+          <li><a href="#siddurim">סידורים</a></li>
+          <li><a href="#shabbat">שבת קודש</a></li>
           <li><a href="#tallit">טלית ותפילין</a></li>
+          <li><a href="#kippot">כיפות</a></li>
+          <li><a href="#kids">ילדים</a></li>
+          <li><a href="#judaica">יודאיקה</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h4>עוד</h4>
+        <h4>קולקציית חגים</h4>
         <ul>
-          <li><a href="#kippot">כיפות</a></li>
-          <li><a href="#kids">ילדים</a></li>
-          <li><a href="#judaica">מוצרי יודאיקה</a></li>
-          <li><a href="#about">אודות</a></li>
+          <li><a href="rosh-hashana.html">ראש השנה</a></li>
+          <li><span class="footer-soon">יום כיפור</span></li>
+          <li><span class="footer-soon">סוכות</span></li>
+          <li><span class="footer-soon">חנוכה</span></li>
+          <li><span class="footer-soon">ט״ו בשבט</span></li>
+          <li><span class="footer-soon">פורים</span></li>
+          <li><span class="footer-soon">פסח</span></li>
+          <li><span class="footer-soon">ל״ג בעומר</span></li>
+          <li><span class="footer-soon">שבועות</span></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -849,6 +1049,6 @@
   <img src="" alt="" id="lightboxImg">
 </div>
 
-<script src="assets/js/main.js?v=10"></script>
+<script src="assets/js/main.js?v=14"></script>
 </body>
 </html>
