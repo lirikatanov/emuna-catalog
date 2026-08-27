@@ -170,37 +170,39 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // ---- click-to-select product gallery (kippot) ----
+  const kippotGallery = document.getElementById('kippotGallery');
+  if (kippotGallery) {
+    const thumbs = Array.from(kippotGallery.querySelectorAll('.pcg-thumb'));
+    const detailTitle = document.getElementById('kippotDetailTitle');
+    const detailMeta = document.getElementById('kippotDetailMeta');
+    const detailDesc = document.getElementById('kippotDetailDesc');
+    const detailPrice = document.getElementById('kippotDetailPrice');
+
+    thumbs.forEach(thumb => {
+      thumb.addEventListener('click', () => {
+        thumbs.forEach(t => t.classList.remove('active'));
+        thumb.classList.add('active');
+        detailTitle.textContent = thumb.dataset.title || '';
+        detailMeta.textContent = thumb.dataset.meta || '';
+        detailDesc.textContent = thumb.dataset.desc || '';
+        detailPrice.textContent = thumb.dataset.price || '';
+      });
+    });
+  }
+
   // ---- swipeable product image galleries (2 photos per card) ----
   document.querySelectorAll('.pc-img-swipe').forEach(wrap => {
     const track = wrap.querySelector('.pc-img-track');
     const dots = Array.from(wrap.querySelectorAll('.pc-img-dots .dot'));
     if (!track) return;
     const images = Array.from(track.querySelectorAll('img'));
-    if (!images.length) return;
-
-    let currentIndex = 0;
-    const goToImage = (index) => {
-      currentIndex = (index + images.length) % images.length;
-      images[currentIndex].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
-      dots.forEach((dot, dotIndex) => dot.classList.toggle('active', dotIndex === currentIndex));
-    };
-
-    wrap.querySelector('.pc-img-nav.prev')?.addEventListener('click', (event) => {
-      event.stopPropagation();
-      goToImage(currentIndex - 1);
-    });
-    wrap.querySelector('.pc-img-nav.next')?.addEventListener('click', (event) => {
-      event.stopPropagation();
-      goToImage(currentIndex + 1);
-    });
-
-    if (!dots.length) return;
+    if (!images.length || !dots.length) return;
 
     const dotObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           const index = images.indexOf(entry.target);
-          currentIndex = index;
           dots.forEach(d => d.classList.remove('active'));
           if (dots[index]) dots[index].classList.add('active');
         }

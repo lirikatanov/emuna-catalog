@@ -462,7 +462,9 @@ html[dir="rtl"] .cat-watermark.left { left: -20px; }
   transition: transform 0.35s ease;
 }
 .product-card:hover { transform: translateY(-6px); }
-.product-card .pc-img { aspect-ratio: 3/4; overflow: hidden; }
+.product-card .pc-img { aspect-ratio: 5/4; overflow: hidden; }
+.mezuzah-collection .pc-img { aspect-ratio: 7/5; }
+#shabbat .pc-img { aspect-ratio: 2/3; }
 .product-card .pc-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
 .product-card:hover .pc-img img { transform: scale(1.06); }
 .product-card .pc-body {
@@ -489,9 +491,12 @@ html[dir="rtl"] .cat-watermark.left { left: -20px; }
   width: 100%;
   height: 100%;
   overflow-x: auto;
+  overflow-y: hidden;
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
   -ms-overflow-style: none;
+  touch-action: pan-x;
+  overscroll-behavior: none;
 }
 .pc-img-track::-webkit-scrollbar { display: none; }
 .pc-img-track img {
@@ -589,88 +594,65 @@ html[dir="rtl"] .cat-watermark.left { left: -20px; }
 .pc-full .pc-body .pc-meta { font-size: 12px; }
 .pc-full .pc-body .price { font-size: 20px; }
 
-/* compact product cards with swipeable galleries (judaica) */
+/* judaica: wide 3-column grid, shares the standard .pc-img-swipe gallery pattern */
 .product-grid.judaica-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
-.judaica-product .pc-img {
-  aspect-ratio: 3 / 3;
-  background: var(--tan-card);
-}
-.judaica-product .pc-body { padding: 18px 22px 20px; gap: 8px; text-align: right; }
-.judaica-product h3 { font-size: 23px; }
-.judaica-product .pc-desc { line-height: 1.65; }
+.judaica-product .pc-img { background: var(--tan-card); }
 .judaica-product .pc-price { margin-top: auto; padding-top: 4px; }
-.judaica-product .pc-img-track {
-  direction: rtl;
-  overflow-y: hidden;
-  overscroll-behavior-y: none;
-}
-.pc-img-nav {
-  position: absolute;
-  top: 50%;
-  z-index: 3;
-  width: 34px;
-  height: 34px;
-  border: 0;
-  border-radius: 50%;
-  background: rgba(255,255,255,.88);
-  color: var(--brown-1);
-  box-shadow: 0 2px 10px rgba(48,33,25,.16);
-  cursor: pointer;
-  font: 0/1 Arial, sans-serif;
-  transform: translateY(-50%);
-  opacity: 0;
-  transition: opacity .2s ease, background .2s ease;
-}
-.pc-img-nav::before { font-size: 28px; line-height: 30px; }
-.pc-img-nav.prev { right: 12px; }
-.pc-img-nav.prev::before { content: '›'; }
-.pc-img-nav.next { left: 12px; }
-.pc-img-nav.next::before { content: '‹'; }
-.pc-img-swipe:hover .pc-img-nav,
-.pc-img-nav:focus-visible { opacity: 1; }
-.pc-img-nav:hover { background: #fff; }
-.judaica-product .pc-img-dots { bottom: 10px; }
 
 @media (max-width: 1024px) {
   .product-grid.judaica-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 760px) {
   .product-grid.judaica-grid { grid-template-columns: 1fr; gap: 18px; }
-  .judaica-product .pc-img { aspect-ratio: 3 / 3; }
-  .judaica-product .pc-body { padding: 17px 20px 19px; }
-  .judaica-product h3 { font-size: 22px; }
-  .pc-img-nav { opacity: .92; width: 32px; height: 32px; }
 }
 
-/* side card style: image beside text (kippot) */
-.product-grid.side-cards { grid-template-columns: 1fr; gap: 30px; }
-.pc-side {
-  display: flex;
-  min-height: 400px;
+/* click-to-select product gallery (kippot): grid of photos + one shared detail card below */
+.pc-gallery { position: relative; z-index: 1; }
+.pcg-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.pcg-thumb {
+  aspect-ratio: 3/4;
+  border-radius: 18px;
+  overflow: hidden;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  background: var(--tan-card);
+  box-shadow: var(--shadow-product);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.pcg-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+.pcg-thumb:hover { transform: translateY(-4px); }
+.pcg-thumb:hover img { transform: scale(1.06); }
+.pcg-thumb.active {
+  box-shadow: 0 0 0 2px var(--cream), 0 0 0 4px var(--brown-1);
+  transform: scale(1.1);
+  position: relative;
+  z-index: 2;
+}
+
+.pcg-detail {
+  margin: 36px auto 0;
   background: var(--white);
   border-radius: var(--radius-card);
-  overflow: hidden;
   box-shadow: var(--shadow-product);
-}
-.pc-side-img { flex: 0 0 35%; }
-.pc-side-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.pc-side-body {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  padding: 30px 32px;
   text-align: center;
-  gap: 14px;
-  padding: 20px 25px;
 }
-.pc-side-body h3 { font-size: 32px; }
-.pc-side-body .pc-meta { font-weight: 700; font-size: 15px; }
-.pc-side-body .pc-desc { font-size: 15px; color: var(--brown-1); }
+.pcg-detail h3 { font-size: 26px; margin-bottom: 10px; }
+.pcg-detail .pc-meta { font-size: 14px; font-weight: 700; color: var(--brown-1); margin-bottom: 10px; }
+.pcg-detail .pc-desc { font-size: 14px; color: var(--brown-light); margin-bottom: 16px; }
 
+@media (max-width: 1024px) {
+  .pcg-grid { grid-template-columns: repeat(4, 1fr); }
+}
 @media (max-width: 760px) {
-  .pc-side { flex-direction: column; min-height: auto; }
-  .pc-side-img { flex: none; height: 260px; }
+  .pcg-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .pcg-thumb { border-radius: 14px; }
+  .pcg-detail { padding: 24px 22px; margin-top: 26px; }
 }
 
 /* tallit list style: wide photo strip with title/price and fabric-swatch circle overlaid on the image */
@@ -799,6 +781,35 @@ html[dir="rtl"] .cat-watermark.left { left: -20px; }
 .embroidery-note h3 { font-size: 30px; margin-bottom: 16px; }
 .embroidery-note p { font-size: 15px; margin-bottom: 6px; }
 .embroidery-note .warn { font-weight: 700; font-size: 14px; margin-top: 14px; }
+
+/* ==========================================================================
+   Shabbat book set (bundle, set apart from the regular grid)
+   ========================================================================== */
+.shabbat-set {
+  position: relative;
+  z-index: 1;
+  margin-top: 60px;
+  padding: 50px 40px;
+  border-radius: var(--radius-card);
+  background: var(--tan-card);
+}
+.shabbat-set-inner { text-align: center; max-width: 640px; margin: 0 auto 40px; }
+.shabbat-set-inner h3 { font-family: var(--font-display); font-size: 32px; margin: 10px 0 14px; }
+.shabbat-set-inner p { font-size: 15px; color: var(--brown-1); }
+.shabbat-set-grid { grid-template-columns: repeat(4, 1fr); gap: 24px; }
+.shabbat-set-grid .product-card { background: var(--white); }
+.shabbat-set-offer { text-align: center; margin-top: 36px; }
+.shabbat-set-offer p { font-size: 17px; }
+.shabbat-set-was { text-decoration: line-through; opacity: 0.5; margin-inline-end: 12px; font-size: 16px; }
+.shabbat-set-offer .price { font-size: 32px; }
+
+@media (max-width: 1024px) {
+  .shabbat-set-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 760px) {
+  .shabbat-set { padding: 36px 20px; }
+  .shabbat-set-grid { grid-template-columns: 1fr; gap: 18px; }
+}
 
 /* ==========================================================================
    Closing / testimonial
