@@ -191,18 +191,44 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ---- swipeable product image galleries (2 photos per card) ----
+  // ---- swipeable product image galleries (2+ photos per card) ----
   document.querySelectorAll('.pc-img-swipe').forEach(wrap => {
     const track = wrap.querySelector('.pc-img-track');
     const dots = Array.from(wrap.querySelectorAll('.pc-img-dots .dot'));
     if (!track) return;
+
     const images = Array.from(track.querySelectorAll('img'));
     if (!images.length || !dots.length) return;
+
+    let currentIndex = 0;
+    const goToImage = (index) => {
+      currentIndex = (index + images.length) % images.length;
+      images[currentIndex].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+      dots.forEach((dot, dotIndex) => dot.classList.toggle('active', dotIndex === currentIndex));
+    };
+
+    // desktop-only prev/next arrow buttons (hidden on mobile via CSS; mobile keeps touch-swipe)
+    if (images.length > 1) {
+      const prevBtn = document.createElement('button');
+      prevBtn.type = 'button';
+      prevBtn.className = 'pc-img-nav prev';
+      prevBtn.setAttribute('aria-label', 'לתמונה הקודמת');
+      const nextBtn = document.createElement('button');
+      nextBtn.type = 'button';
+      nextBtn.className = 'pc-img-nav next';
+      nextBtn.setAttribute('aria-label', 'לתמונה הבאה');
+      wrap.appendChild(prevBtn);
+      wrap.appendChild(nextBtn);
+
+      prevBtn.addEventListener('click', (e) => { e.stopPropagation(); goToImage(currentIndex - 1); });
+      nextBtn.addEventListener('click', (e) => { e.stopPropagation(); goToImage(currentIndex + 1); });
+    }
 
     const dotObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           const index = images.indexOf(entry.target);
+          currentIndex = index;
           dots.forEach(d => d.classList.remove('active'));
           if (dots[index]) dots[index].classList.add('active');
         }
