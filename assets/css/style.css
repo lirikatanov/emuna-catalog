@@ -129,6 +129,16 @@ h1, h2, h3, h4 {
 .reveal.reveal-ready { opacity: 0; transform: translateY(28px); }
 .reveal.in-view { opacity: 1; transform: translateY(0); }
 
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal.reveal-ready,
+  .reveal.in-view {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
 /* ==========================================================================
    Header
    ========================================================================== */
@@ -507,6 +517,9 @@ html[dir="rtl"] .cat-watermark.left { left: -20px; }
   height: 100%;
   object-fit: cover;
   scroll-snap-align: start;
+  scroll-snap-stop: always;
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
 /* desktop: navigate only via the subtle arrow buttons, no drag/wheel scroll */
@@ -536,9 +549,14 @@ html[dir="rtl"] .cat-watermark.left { left: -20px; }
 .pc-img-nav:focus-visible { opacity: 1; }
 .pc-img-nav:hover { background: #fff; }
 
-/* mobile: no native drag/swipe either (it kept trapping vertical page scroll) —
-   navigate with the same arrow buttons as desktop, always visible since there's no hover */
+/* mobile: native horizontal swipe plus visible arrow controls */
 @media (max-width: 760px) {
+  .pc-img-track {
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    overscroll-behavior-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
   .pc-img-nav { opacity: 1; }
 }
 

@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
           revealObserver.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.12 });
+    }, { threshold: 0.01, rootMargin: '0px 0px -6% 0px' });
 
     revealElements.forEach(el => {
       el.classList.add('reveal-ready');
@@ -203,11 +203,23 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentIndex = 0;
     const goToImage = (index) => {
       currentIndex = (index + images.length) % images.length;
-      images[currentIndex].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+      const targetImage = images[currentIndex];
+      const trackRect = track.getBoundingClientRect();
+      const imageRect = targetImage.getBoundingClientRect();
+      const isRtl = getComputedStyle(track).direction === 'rtl';
+      const horizontalDelta = isRtl
+        ? imageRect.right - trackRect.right
+        : imageRect.left - trackRect.left;
+
+      track.scrollBy({ left: horizontalDelta, behavior: 'smooth' });
       dots.forEach((dot, dotIndex) => dot.classList.toggle('active', dotIndex === currentIndex));
     };
 
-    // desktop-only prev/next arrow buttons (hidden on mobile via CSS; mobile keeps touch-swipe)
+    images.forEach(img => {
+      img.draggable = false;
+    });
+
+    // Arrow controls complement native touch-swipe on mobile.
     if (images.length > 1) {
       const prevBtn = document.createElement('button');
       prevBtn.type = 'button';
@@ -220,8 +232,16 @@ document.addEventListener('DOMContentLoaded', () => {
       wrap.appendChild(prevBtn);
       wrap.appendChild(nextBtn);
 
-      prevBtn.addEventListener('click', (e) => { e.stopPropagation(); goToImage(currentIndex - 1); });
-      nextBtn.addEventListener('click', (e) => { e.stopPropagation(); goToImage(currentIndex + 1); });
+      prevBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        goToImage(currentIndex - 1);
+      });
+      nextBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        goToImage(currentIndex + 1);
+      });
     }
 
     const dotObserver = new IntersectionObserver((entries) => {
