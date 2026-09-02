@@ -442,6 +442,9 @@ html[dir="rtl"] .cat-watermark.left { left: -20px; }
 }
 .cat-header p { font-size: 16px; color: var(--brown-1); }
 
+.section-divider-heading { text-align: center; margin: 60px auto 40px; }
+.section-divider-heading h2 { font-size: clamp(36px, 5vw, 60px); }
+
 .cat-hero-photo {
   position: relative;
   z-index: 1;
@@ -475,7 +478,7 @@ html[dir="rtl"] .cat-watermark.left { left: -20px; }
 .product-card:hover { transform: translateY(-6px); }
 .product-card .pc-img { aspect-ratio: 5/4; overflow: hidden; }
 .mezuzah-collection .pc-img { aspect-ratio: 7/5; }
-#shabbat .pc-img { aspect-ratio: 2/3; }
+#shabbat .pc-img, #siddurim .shabbat-set .pc-img { aspect-ratio: 2/3; }
 .holiday-section .product-card .pc-img { aspect-ratio: 3/5; }
 .product-card .pc-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
 .product-card:hover .pc-img img { transform: scale(1.06); }
@@ -670,6 +673,16 @@ html[dir="rtl"] .cat-watermark.left { left: -20px; }
 
 /* click-to-select product gallery (kippot): grid of photos + one shared detail card below */
 .pc-gallery { position: relative; z-index: 1; }
+.pcg-hint {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--brown-light);
+  margin-bottom: 18px;
+}
+.pcg-hint svg { flex-shrink: 0; opacity: 0.8; }
 .pcg-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -839,6 +852,9 @@ html[dir="rtl"] .cat-watermark.left { left: -20px; }
   text-align: center;
   max-width: 780px;
   margin-inline: auto;
+  border: 1px solid var(--brown-light);
+  border-radius: var(--radius-card);
+  padding: 32px 40px;
 }
 .embroidery-note h3 { font-size: 30px; margin-bottom: 16px; }
 .embroidery-note p { font-size: 15px; margin-bottom: 6px; }
