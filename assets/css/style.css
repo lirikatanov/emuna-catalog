@@ -307,25 +307,25 @@ h1, h2, h3, h4 {
   color: var(--brown-light);
   margin-bottom: 46px;
 }
+.hero-actions-group {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: stretch;
+  max-width: 100%;
+}
 .hero-actions {
   display: flex;
   gap: 18px;
   justify-content: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 }
 .hero-actions-holiday {
   display: flex;
-  justify-content: center;
   margin-top: 45px;
 }
 .hero-actions-holiday .btn {
-  border: none;
-  padding: 8px 20px;
-  font-size: 16px;
-  text-decoration: underline;
-  text-underline-offset: 4px;
+  width: 100%;
 }
-.hero-actions-holiday .btn:hover { background: rgba(64, 41, 30, 0.08); color: var(--brown-1); }
 .btn-holiday {
   background: transparent;
   color: var(--brown-1);
