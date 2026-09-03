@@ -305,7 +305,7 @@ h1, h2, h3, h4 {
   font-size: 34px;
   letter-spacing: 1px;
   color: var(--brown-light);
-  margin-bottom: 46px;
+  margin-bottom: 85px;
 }
 .hero-actions-group {
   display: inline-flex;
