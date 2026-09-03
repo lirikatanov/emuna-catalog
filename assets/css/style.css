@@ -40,7 +40,11 @@
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  /* Keep in-page anchor targets below the fixed promo bar and scrolled header. */
+  scroll-padding-top: 100px;
+}
 
 body {
   font-family: var(--font-body);
@@ -176,6 +180,7 @@ h1, h2, h3, h4 {
 @media (max-width: 760px) {
   .promo-bar { height: 32px; }
   .promo-item { font-size: 12px; }
+  html { scroll-padding-top: 82px; }
 }
 
 /* ==========================================================================
