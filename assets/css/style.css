@@ -510,6 +510,8 @@ html[dir="rtl"] .cat-watermark.left { left: -20px; }
 }
 .cat-hero-photo img,
 .cat-hero-photo video { width: 100%; height: 480px; object-fit: cover; display: block; }
+.rosh-hashana-video { max-height: 580px; }
+.rosh-hashana-video video { height: 580px; max-height: 580px; }
 
 /* product grid */
 .product-grid {
