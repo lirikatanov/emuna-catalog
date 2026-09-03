@@ -12,6 +12,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
+  // ---- autoplay videos: retry on first user interaction if the browser blocked it ----
+  document.querySelectorAll('video[autoplay]').forEach((video) => {
+    const tryPlay = () => video.play().catch(() => {});
+    tryPlay();
+    ['click', 'touchstart', 'scroll'].forEach((evt) => {
+      document.addEventListener(evt, tryPlay, { once: true, passive: true });
+    });
+  });
+
   // ---- sticky header shadow ----
   const onScroll = () => {
     if (window.scrollY > 40) {
@@ -121,7 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const lightboxClose = document.getElementById('lightboxClose');
 
   if (lightbox && lightboxImg && lightboxClose) {
-    const zoomableSelector = '.about-photo img, .cat-hero-photo img, .pc-img img, .pc-img-full img, .pc-tallit-img img, .pc-tallit-swatch img, .material-strip img, .rh-atmo-img img, .pc-kid-img img, .pc-kid-gallery-img img';
+    const zoomableSelector = '.about-photo img, .cat-hero-photo img, .pc-img img, .pc-img-full img, .pc-tallit-img img, .pc-tallit-swatch img, .material-strip img, .rh-atmo-img img, .pc-kid-img img, .pc-kid-gallery-img img, .bride-prayer-img img, .prayer-books-gallery img';
 
     const openLightbox = (src, alt) => {
       lightboxImg.src = src;

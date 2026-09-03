@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preload" href="assets/fonts/HadasimCLM-Regular.ttf" as="font" type="font/ttf" crossorigin>
 <link rel="preload" href="assets/fonts/FtPilKahol.ttf" as="font" type="font/ttf" crossorigin>
-<link rel="stylesheet" href="assets/css/style.css?v=74">
+<link rel="stylesheet" href="assets/css/style.css?v=79">
 </head>
 <body>
 
@@ -19,6 +19,24 @@
   </svg>
 </a>
 <button class="to-top" id="toTop" aria-label="חזרה למעלה">↑</button>
+
+<!-- ================= PROMO BAR ================= -->
+<div class="promo-bar" aria-label="מידע על משלוחים">
+  <div class="promo-track" aria-hidden="true">
+    <div class="promo-set">
+      <span class="promo-item">מעל 500₪ משלוח חינם</span>
+      <span class="promo-item">משלוחים לכל הארץ</span>
+      <span class="promo-item">מעל 500₪ משלוח חינם</span>
+      <span class="promo-item">משלוחים לכל הארץ</span>
+    </div>
+    <div class="promo-set">
+      <span class="promo-item">מעל 500₪ משלוח חינם</span>
+      <span class="promo-item">משלוחים לכל הארץ</span>
+      <span class="promo-item">מעל 500₪ משלוח חינם</span>
+      <span class="promo-item">משלוחים לכל הארץ</span>
+    </div>
+  </div>
+</div>
 
 <!-- ================= HEADER ================= -->
 <header class="site-header" id="siteHeader">
@@ -35,7 +53,10 @@
         <li><a href="#tallit" class="nav-link">טלית ותפילין</a></li>
         <li><a href="#kippot" class="nav-link">כיפות</a></li>
         <li><a href="#kids" class="nav-link">ילדים</a></li>
+        <li class="nav-sep" aria-hidden="true"></li>
         <li><a href="holidays.html" class="nav-link">קולקציות חגים</a></li>
+        <li class="nav-sep" aria-hidden="true"></li>
+        <li><a href="#reviews" class="nav-link">ביקורות</a></li>
       </ul>
     </nav>
 
@@ -58,10 +79,10 @@
     <p class="hero-tagline">אָמָנוּת · יוּדָאִיקָה</p>
     <div class="hero-actions">
       <a href="#categories" class="btn btn-primary">לקטלוג</a>
-      <a href="holidays.html" class="btn btn-holiday">לקולקציות חגים ✦</a>
+      <a href="holidays.html" class="btn btn-holiday">✦ לקולקציות חגים ✦</a>
     </div>
     <div class="hero-actions-holiday">
-      <a href="#about" class="btn btn-outline">הכירו אותנו</a>
+      <a href="#contact" class="btn btn-outline">להזמנות</a>
     </div>
   </div>
   <div class="scroll-cue"></div>
@@ -1157,6 +1178,40 @@
   </div>
 </section>
 
+<!-- ================= REVIEWS ================= -->
+<section class="reviews-section" id="reviews">
+  <div class="container">
+    <div class="cat-header reveal">
+      <p class="eyebrow">מה אומרים עלינו</p>
+      <h2>בִּיקוֹרוֹת</h2>
+      <p>נשמח לשמוע גם מכם — השאירו כמה מילים על החוויה שלכם איתנו.</p>
+    </div>
+
+    <form class="review-form reveal" id="reviewForm" novalidate>
+      <div class="review-form-row">
+        <input type="text" id="rv-name" placeholder="שם פרטי" maxlength="30" required>
+        <div class="review-stars" id="reviewStars" role="radiogroup" aria-label="דירוג בכוכבים">
+          <button type="button" class="star" data-value="1" aria-label="כוכב 1">★</button>
+          <button type="button" class="star" data-value="2" aria-label="כוכב 2">★</button>
+          <button type="button" class="star" data-value="3" aria-label="כוכב 3">★</button>
+          <button type="button" class="star" data-value="4" aria-label="כוכב 4">★</button>
+          <button type="button" class="star" data-value="5" aria-label="כוכב 5">★</button>
+        </div>
+      </div>
+      <textarea id="rv-text" maxlength="70" rows="2" placeholder="ספרו לנו על החוויה שלכם (עד 70 תווים)" required></textarea>
+      <div class="review-form-footer">
+        <span class="review-char-count" id="reviewCharCount">0/70</span>
+        <button type="submit" class="btn btn-primary">פרסום ביקורת</button>
+      </div>
+      <p class="form-msg" id="reviewMsg"></p>
+    </form>
+
+    <div class="reviews-list reveal" id="reviewsList">
+      <p class="reviews-empty" id="reviewsEmpty">היו הראשונים לכתוב ביקורת ✦</p>
+    </div>
+  </div>
+</section>
+
 <!-- ================= CONTACT ================= -->
 <section class="contact" id="contact">
   <div class="container reveal">
@@ -1181,6 +1236,16 @@
         <p style="margin-top:16px; font-size:14px;">חנות דיגיטלית המתמחה במוצרי יודאיקה ותשמישי קדושה, מתוך חיבור עמוק ואהבה לתורה ולמסורת ישראל.</p>
       </div>
       <div class="footer-col">
+        <h4>משלוחים</h4>
+        <ul>
+          <li>משלוחים לכל הארץ</li>
+          <li>זמן אספקה למוצרים 7 ימי עסקים</li>
+          <li>*בהתאמה אישית עד 14 יום</li>
+          <li>40 ש״ח משלוח</li>
+          <li>מעל 500 ש״ח משלוח חינם</li>
+        </ul>
+      </div>
+      <div class="footer-col">
         <h4>קטלוג</h4>
         <ul>
           <li><a href="#about">אודות</a></li>
@@ -1191,6 +1256,7 @@
           <li><a href="#tallit">טלית ותפילין</a></li>
           <li><a href="#kippot">כיפות</a></li>
           <li><a href="#kids">ילדים</a></li>
+          <li><a href="#reviews">ביקורות</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -1224,6 +1290,9 @@
   <img src="" alt="" id="lightboxImg">
 </div>
 
-<script src="assets/js/main.js?v=20"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="assets/js/reviews.js?v=1"></script>
+<script src="assets/js/main.js?v=22"></script>
 </body>
 </html>

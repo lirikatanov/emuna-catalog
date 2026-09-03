@@ -140,12 +140,51 @@ h1, h2, h3, h4 {
 }
 
 /* ==========================================================================
+   Promo bar
+   ========================================================================== */
+.promo-bar {
+  position: fixed;
+  inset-inline: 0;
+  top: 0;
+  z-index: 501;
+  height: 36px;
+  background: var(--brown-1);
+  color: var(--cream);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+.promo-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  animation: promo-scroll 22s linear infinite;
+}
+.promo-set {
+  display: flex;
+  align-items: center;
+  gap: 100px;
+  padding-inline-end: 100px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.promo-item { font-size: 13px; letter-spacing: 0.3px; }
+@keyframes promo-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@media (max-width: 760px) {
+  .promo-bar { height: 32px; }
+  .promo-item { font-size: 12px; }
+}
+
+/* ==========================================================================
    Header
    ========================================================================== */
 .site-header {
   position: fixed;
   inset-inline: 0;
-  top: 0;
+  top: 36px;
   z-index: 500;
   padding: 18px 0;
   transition: background 0.35s ease, padding 0.35s ease, box-shadow 0.35s ease;
@@ -186,6 +225,13 @@ h1, h2, h3, h4 {
 .main-nav a:hover::after,
 .main-nav a.active::after { width: 100%; }
 .main-nav a.active { color: var(--brown-1); font-weight: 700; }
+.main-nav .nav-sep {
+  width: 1px;
+  height: 14px;
+  align-self: center;
+  background: var(--brown-light);
+  opacity: 0.6;
+}
 
 .header-cta { display: flex; align-items: center; gap: 18px; }
 .header-cta .btn { padding: 11px 26px; font-size: 14px; }
@@ -211,6 +257,7 @@ h1, h2, h3, h4 {
    ========================================================================== */
 .hero {
   position: relative;
+  top: 35px;
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -264,8 +311,16 @@ h1, h2, h3, h4 {
 .hero-actions-holiday {
   display: flex;
   justify-content: center;
-  margin-top: 18px;
+  margin-top: 45px;
 }
+.hero-actions-holiday .btn {
+  border: none;
+  padding: 8px 20px;
+  font-size: 16px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.hero-actions-holiday .btn:hover { background: rgba(64, 41, 30, 0.08); color: var(--brown-1); }
 .btn-holiday {
   background: transparent;
   color: var(--brown-1);
@@ -561,7 +616,12 @@ html[dir="rtl"] .cat-watermark.left { left: -20px; }
     overscroll-behavior-y: auto;
     -webkit-overflow-scrolling: touch;
   }
-  .pc-img-nav { opacity: 1; }
+}
+
+/* mobile + tablet: no hover available, so keep the arrows visible and a touch-friendly size */
+@media (max-width: 1024px) {
+  .pc-img-nav { opacity: 1; width: 38px; height: 38px; }
+  .pc-img-nav::before { font-size: 22px; line-height: 24px; }
 }
 
 .pc-img-dots {
@@ -940,9 +1000,8 @@ html[dir="rtl"] .cat-watermark.left { left: -20px; }
   border-radius: var(--radius-card);
   background: var(--brown-2);
   box-shadow: var(--shadow-product);
+  direction: rtl;
 }
-.prayer-books-gallery .pc-img-nav.prev { right: auto; left: 10px; }
-.prayer-books-gallery .pc-img-nav.next { left: auto; right: 10px; }
 .prayer-books-details {
   grid-area: details;
   display: flex;
@@ -1032,6 +1091,66 @@ html[dir="rtl"] .cat-watermark.left { left: -20px; }
 .closing .about-signature { font-size: 30px; }
 
 /* ==========================================================================
+   Reviews
+   ========================================================================== */
+.reviews-section { padding: 100px 0; }
+.review-form { max-width: 640px; margin: 0 auto 60px; display: flex; flex-direction: column; gap: 16px; }
+.review-form-row { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; justify-content: center; }
+.review-form input[type="text"],
+.review-form textarea {
+  width: 100%;
+  padding: 14px 20px;
+  border-radius: 20px;
+  border: 1.5px solid var(--brown-light);
+  background: var(--white);
+  color: var(--brown-1);
+  font-family: var(--font-body);
+  font-size: 15px;
+}
+.review-form-row input[type="text"] { flex: 1 1 220px; border-radius: 40px; }
+.review-form textarea { resize: none; }
+.review-form input:focus,
+.review-form textarea:focus { outline: none; border-color: var(--brown-1); }
+.review-stars { display: flex; gap: 4px; direction: ltr; }
+.review-stars .star {
+  background: none;
+  border: none;
+  font-size: 26px;
+  color: var(--sage);
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+  transition: color 0.15s ease;
+}
+.review-stars .star.active { color: #d9a441; }
+.review-form-footer { display: flex; align-items: center; justify-content: space-between; gap: 14px; }
+.review-char-count { font-size: 13px; color: var(--brown-light); }
+
+.reviews-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  max-height: 460px;
+  overflow-y: auto;
+  padding: 4px 4px 4px 0;
+  scrollbar-width: thin;
+  scrollbar-color: var(--brown-light) transparent;
+}
+.reviews-list::-webkit-scrollbar { width: 6px; }
+.reviews-list::-webkit-scrollbar-thumb { background: var(--brown-light); border-radius: 10px; }
+.review-card { background: var(--white); border-radius: 16px; padding: 16px 20px; box-shadow: var(--shadow-product); text-align: right; }
+.review-card-stars { color: #d9a441; font-size: 14px; letter-spacing: 2px; margin-bottom: 6px; direction: ltr; text-align: right; }
+.review-card-text { font-size: 14px; color: var(--brown-1); margin-bottom: 8px; line-height: 1.4; }
+.review-card-name { font-size: 13px; font-weight: 700; color: var(--brown-light); }
+.reviews-empty { text-align: center; color: var(--brown-light); grid-column: 1 / -1; }
+
+@media (max-width: 760px) {
+  .reviews-list { grid-template-columns: 1fr; max-height: 420px; }
+  .review-form-row input[type="text"] { flex-basis: 100%; text-align: center; }
+  .review-stars { justify-content: center; }
+}
+
+/* ==========================================================================
    Contact / newsletter
    ========================================================================== */
 .contact {
@@ -1084,14 +1203,14 @@ html[dir="rtl"] .cat-watermark.left { left: -20px; }
 }
 .footer-grid {
   display: grid;
-  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  grid-template-columns: 1.2fr 1fr 1fr 1fr 1fr;
   gap: 40px;
   padding-bottom: 40px;
   border-bottom: 1px solid rgba(244,241,234,0.12);
 }
 .footer-grid .logo { margin-bottom: 14px; }
 .footer-col h4 { color: var(--cream); font-family: var(--font-body); font-size: 15px; font-weight: 700; margin-bottom: 16px; }
-.footer-col ul li { margin-bottom: 10px; font-size: 14px; }
+.footer-col ul li { margin-bottom: 6px; font-size: 14px; }
 .footer-col a:hover { color: var(--cream); }
 .footer-soon { color: rgba(244,241,234,0.35); }
 .footer-bottom {
@@ -1153,6 +1272,7 @@ html[dir="rtl"] .cat-watermark.left { left: -20px; }
   .whatsapp-float { bottom: 20px; left: 20px; width: 42px; height: 42px; }
   .whatsapp-float svg { width: 22px; height: 22px; }
   .logo img { display: block; height: 30px; width: auto; }
+  .site-header { top: 32px; }
 }
 
 /* ==========================================================================
@@ -1169,7 +1289,11 @@ html[dir="rtl"] .cat-watermark.left { left: -20px; }
   .pc-wide { grid-column: span 1; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
   #siddurim .product-grid.full-bleed { grid-template-columns: 1fr; }
+}
 
+/* nav collapses to the hamburger menu earlier than the grid breakpoints:
+   between ~1024-1400px the full nav links no longer fit the header and wrap/overlap */
+@media (max-width: 1400px) {
   .main-nav, .header-cta .btn-outline { display: none; }
   .nav-toggle { display: flex; }
   .site-header.nav-open {
@@ -1186,8 +1310,9 @@ html[dir="rtl"] .cat-watermark.left { left: -20px; }
     align-items: center;
     justify-content: center;
   }
-  .main-nav.open ul { flex-direction: column; text-align: center; gap: 28px; }
+  .main-nav.open ul { flex-direction: column; text-align: center; gap: 18px; }
   .main-nav.open a { font-size: 22px; }
+  .main-nav.open .nav-sep { width: 60%; height: 1px; }
 }
 
 @media (max-width: 760px) {
@@ -1292,6 +1417,7 @@ html[dir="rtl"] .cat-watermark.left { left: -20px; }
 
 .lightbox-close {
   position: absolute;
+  z-index: 5;
   top: 26px;
   right: 30px;
   width: 48px;

@@ -7,7 +7,7 @@
 <meta name="description" content="קולקציית ראש השנה של אמונה — סימנים, כלי דבש קריסטל, ברכונים וצלחות סימנים מהודרות לשולחן החג.">
 <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="assets/css/style.css?v=74">
+<link rel="stylesheet" href="assets/css/style.css?v=79">
 </head>
 <body>
 
@@ -17,6 +17,24 @@
   </svg>
 </a>
 <button class="to-top" id="toTop" aria-label="חזרה למעלה">↑</button>
+
+<!-- ================= PROMO BAR ================= -->
+<div class="promo-bar" aria-label="מידע על משלוחים">
+  <div class="promo-track" aria-hidden="true">
+    <div class="promo-set">
+      <span class="promo-item">מעל 500₪ משלוח חינם</span>
+      <span class="promo-item">משלוחים לכל הארץ</span>
+      <span class="promo-item">מעל 500₪ משלוח חינם</span>
+      <span class="promo-item">משלוחים לכל הארץ</span>
+    </div>
+    <div class="promo-set">
+      <span class="promo-item">מעל 500₪ משלוח חינם</span>
+      <span class="promo-item">משלוחים לכל הארץ</span>
+      <span class="promo-item">מעל 500₪ משלוח חינם</span>
+      <span class="promo-item">משלוחים לכל הארץ</span>
+    </div>
+  </div>
+</div>
 
 <!-- ================= HEADER ================= -->
 <header class="site-header" id="siteHeader">
@@ -29,11 +47,14 @@
         <li><a href="index.html#mezuzot" class="nav-link">מזוזות</a></li>
         <li><a href="index.html#siddurim" class="nav-link">סידורים</a></li>
         <li><a href="index.html#shabbat" class="nav-link">שבת קודש</a></li>
+        <li><a href="index.html#judaica" class="nav-link">יודאיקה</a></li>
         <li><a href="index.html#tallit" class="nav-link">טלית ותפילין</a></li>
         <li><a href="index.html#kippot" class="nav-link">כיפות</a></li>
         <li><a href="index.html#kids" class="nav-link">ילדים</a></li>
-        <li><a href="index.html#judaica" class="nav-link">יודאיקה</a></li>
+        <li class="nav-sep" aria-hidden="true"></li>
         <li><a href="holidays.html" class="nav-link">קולקציות חגים</a></li>
+        <li class="nav-sep" aria-hidden="true"></li>
+        <li><a href="index.html#reviews" class="nav-link">ביקורות</a></li>
       </ul>
     </nav>
 
@@ -57,8 +78,8 @@
     </div>
 
     <div class="cat-hero-photo reveal">
-      <video autoplay loop muted playsinline disablepictureinpicture>
-        <source src="assets/video/rosh-hashana.mp4" type="video/mp4">
+      <video autoplay loop muted playsinline webkit-playsinline="true" preload="auto" disablepictureinpicture>
+        <source src="assets/video/rosh-hashana.mp4?v=2" type="video/mp4">
       </video>
     </div>
 
@@ -179,6 +200,16 @@
         <p style="margin-top:16px; font-size:14px;">חנות דיגיטלית המתמחה במוצרי יודאיקה ותשמישי קדושה, מתוך חיבור עמוק ואהבה לתורה ולמסורת ישראל.</p>
       </div>
       <div class="footer-col">
+        <h4>משלוחים</h4>
+        <ul>
+          <li>משלוחים לכל הארץ</li>
+          <li>זמן אספקה למוצרים 7 ימי עסקים</li>
+          <li>*בהתאמה אישית עד 14 יום</li>
+          <li>40 ש״ח משלוח</li>
+          <li>מעל 500 ש״ח משלוח חינם</li>
+        </ul>
+      </div>
+      <div class="footer-col">
         <h4>קטלוג</h4>
         <ul>
           <li><a href="index.html#about">אודות</a></li>
@@ -189,6 +220,7 @@
           <li><a href="index.html#kippot">כיפות</a></li>
           <li><a href="index.html#kids">ילדים</a></li>
           <li><a href="index.html#judaica">יודאיקה</a></li>
+          <li><a href="index.html#reviews">ביקורות</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -222,6 +254,6 @@
   <img src="" alt="" id="lightboxImg">
 </div>
 
-<script src="assets/js/main.js?v=20"></script>
+<script src="assets/js/main.js?v=22"></script>
 </body>
 </html>
